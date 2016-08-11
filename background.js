@@ -6,5 +6,5 @@ chrome.runtime.onMessage.addListener(function(request, sender){
 });
 
 chrome.browserAction.onClicked.addListener(function(){
-	chrome.tabs.executeScript(null, {file: "getSource.js"});
+	chrome.tabs.executeScript(null, {file: "get_source.js"});
 });
