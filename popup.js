@@ -4,11 +4,21 @@ chrome.runtime.sendMessage({
 
 chrome.runtime.onMessage.addListener(function(request){
     if (request.action === 'analysis_complete') {
-        var div = document.getElementById('messages')
-        div.innerHTML = '<ul>'
+
+        // Remove the 'Loading text'
+        var uiWrapper = document.getElementById('container');
+        var load = document.getElementById('loading');
+        uiWrapper.removeChild(load);
+
+        // Add the messages from alexjs to the list
+        var messageContainer = document.getElementById('messages');
         request.analysis.forEach(function(message){
-            div.innerHTML += '<li>' + message + '</li>';
+            messageContainer.innerHTML += '<div class="item">' + message + '</div>';
         })
-        div.innerHTML += '</ul>'
+
+        // If there's nothing to report, tell them
+        if (request.analysis.length === 0) {
+            messageContainer.innerHTML += '<div class="item">No insensitive language found. You\'re awesome!</div>';
+        }
     }
 })
