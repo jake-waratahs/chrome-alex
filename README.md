@@ -19,3 +19,6 @@ We take the text content of the web page that is being viewed, and run it throug
 So if you're writing a blog post, a readme or an article, you can check that you're still being empathetic!
 
 Peace and Love everyone
+
+### Attribution
+This is built on top of [Titus Wormer](http://wooorm.com/)'s [alexjs](http://alexjs.com/) library.
